@@ -302,6 +302,23 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
+const firstWord = "loop"
+const secondWord = "rune"
+const thirdWord = "apple"
+
+const checkString = function(word) {
+    for (let i = 0; i < word.length; i++) {
+      if (word.indexOf(word[i]) !== word.lastIndexOf(word[i])) {
+        return true
+      }
+    }
+  return false
+}
+
+console.log(checkString(firstWord))
+console.log(checkString(secondWord))
+console.log(checkString(thirdWord))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
