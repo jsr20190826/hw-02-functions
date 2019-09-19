@@ -31,6 +31,27 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+// Create function 'blackJack' with 2 paramenters playerCardScore and dealerCardScore
+
+// function blackJack.(playerCardScore, dealerCardScore) {
+//   if (playerCardScore > 21 && dealerCardScore > 21)
+//   return '0'
+//
+// }
+//
+// console.log(blackJack(22,22))
+
+// const cardNumbers = [22, 22]
+// let goalNumber = 21;
+//
+// const blackJack = cardNumbers.reduce(function(playerCardScore, dealerCardScore) {
+//   return (Math.abs(dealerCardScore - goalNumber) < Math.abs(playerCardScore - goalNumber) ? dealerCardScore : playerCardScore) ? playerCardScore && dealerCardScore > 21 : ;
+// });
+//
+// console.log(blackJack);
+
+// Return value nearest or = 21 without going over. Return 0 if both scores go over 21
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -91,6 +112,22 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+const phrase1 = "olly olly in come free"
+const phrase2 = "Baby shark, doo doo doo doo doo doo"
+const phrase3 = "Humpty Dumpty sat on a wall Humpty Dumpty had a great fall"
+
+
+
+function wordCount(str) {
+    return str.split(" ").reduce(function(count, word) {
+      count[word] = count.hasOwnProperty(word) ? count[word] + 1 : 1;
+      return count;
+    }, {});
+}
+
+console.log(wordCount(phrase1))
+console.log(wordCount(phrase2))
+console.log(wordCount(phrase3))
 // Add your code above this line
 
 /** added for formatting purposes **/
