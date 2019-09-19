@@ -252,6 +252,23 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+function isPalindrome(word) {
+ const re = /[^A-Za-z0-9]/g
+ word = word.toLowerCase().replace(re, '')
+ const len = word.length
+ for (let i = 0; i < len / 2; i++) {
+   if (word[i] !== word[len - 1 - i]) {
+       return false;
+   }
+ }
+ return true;
+}
+
+console.log(isPalindrome("noon"))
+console.log(isPalindrome("racecar"))
+console.log(isPalindrome("moon"))
+console.log(isPalindrome("run"))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
