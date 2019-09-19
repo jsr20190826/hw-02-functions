@@ -173,6 +173,46 @@ console.log('Problem 3:')
 
 // Add your code below this line
 
+// Array scores of alphabet
+const letters = {
+    1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
+    2: ['D', 'G'],
+    3: ['B', 'C', 'M', 'P'],
+    4: ['F', 'H', 'V', 'W', 'Y'],
+    5: ['K'],
+    8: ['J', 'X'],
+    10: ['Q', 'Z']
+}
+// Variable to count score
+let sum;
+
+// Function: return score of letter
+function lettersToScore(letter) {
+    for (let index in letters) {
+	if (Object.keys(letters).indexOf((letters[index].indexOf(letter) !== -1) ? index.toString() : '-1')
+	    !== -1) {
+	    return parseInt(index);
+	}
+    }
+}
+
+// Function: count final score
+const scrabbleScore = function(input) {
+    sum = 0;
+    if (input === null || input === "") {
+	return 0;
+    }
+
+    input.toUpperCase().split("").forEach(function(elem, index, array) {
+	sum += lettersToScore(elem);
+    });
+    return sum;
+}
+
+console.log(scrabbleScore('cabbage'))
+console.log(scrabbleScore('javascript'))
+console.log(scrabbleScore('function'))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
