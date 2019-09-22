@@ -30,6 +30,25 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 1:')
 
 // Add your code below this line
+function blackJack (){
+  if(playerCardScore > dealerCardScore && playerCardScore <= 21){
+        return `Player wins with a score of ${playerCardScore}`
+      }
+      else if(dealerCardScore > playerCardScore && dealerCardScore <= 21) {
+        return `The dealer wins with a score of ${dealerCardScore}`
+      }
+      else {
+        return `Bust! Player loses with a score of ${playerCardScore}, and the dealer loses with a score of ${dealerCardScore}`
+      }
+
+}
+
+const playerCardScore = 22
+const dealerCardScore = 22
+
+
+console.log(blackJack())
+
 
 // Add your code above this line
 
@@ -91,6 +110,67 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+/*
+//testing out split array
+console.log(wordCount()[1])
+
+//testing out calling each array
+wordCount().forEach(function(element, index) {
+  console.log(`${element} is at index ${index}`)
+})
+
+//*/
+
+let phrase = "Humpty Dumpty sat on a wall Humpty Dumpty had a great fall"
+
+function wordCount(){
+  return phrase.split(" ")
+}
+
+// Was playing with the stuff above but ran into issues figuring out how to solve, below is form googling
+
+
+function compressArray(original) {
+
+	var compressed = [];
+	// make a copy of the input array
+	var copy = original.slice(0);
+
+	// first loop goes over every element
+	for (var i = 0; i < original.length; i++) {
+
+		var myCount = 0;
+		// loop over every element in the copy and see if it's the same
+		for (var w = 0; w < copy.length; w++) {
+			if (original[i] == copy[w]) {
+				// increase amount of times duplicate is found
+				myCount++;
+				// sets item to undefined
+				delete copy[w];
+			}
+		}
+
+		if (myCount > 0) {
+			var a = new Object();
+			a.value = original[i];
+			a.count = myCount;
+			compressed.push(a);
+		}
+	}
+
+	return compressed;
+};
+
+// It should go something like this:
+
+var newArray = compressArray(wordCount());
+
+console.log(newArray)
+
+
+
+
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -135,6 +215,53 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+let word = "cabbage"
+let totalScore = 0
+let score = 0
+//let onePoint = ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"  ]
+
+function scrabbleScore(){
+   return word.split("")
+}
+
+    console.log(scrabbleScore())
+
+for (let i = 0; i < word.length; i++) {
+
+    //A, E, I, O, U, L, N, R, S, T       1
+    if(scrabbleScore()[i] === "a" || scrabbleScore()[i] === "e" || scrabbleScore()[i] === "i" || scrabbleScore()[i] === "o" || scrabbleScore()[i] === "u" ||
+    scrabbleScore()[i] === "l" || scrabbleScore()[i] === "n" || scrabbleScore()[i] === "r" || scrabbleScore()[i] === "s" || scrabbleScore()[i] === "t") {
+      score++
+    }
+    //D, G                               2
+    else if (scrabbleScore()[i] === "d" || scrabbleScore()[i] === "g") {
+      score += 2
+    }
+    //B, C, M, P                         3
+    else if (scrabbleScore()[i] === "b" || scrabbleScore()[i] === "c" || scrabbleScore()[i] === "m" || scrabbleScore()[i] === "p") {
+      score += 3
+    }
+    //F, H, V, W, Y                      4
+    else if (scrabbleScore()[i] === "f" || scrabbleScore()[i] === "h" || scrabbleScore()[i] === "v" || scrabbleScore()[i] === "n" || scrabbleScore()[i] === "y") {
+      score += 4
+    }
+    //K                                  5
+    else if (scrabbleScore()[i] === "k"){
+      score += 5
+    }
+    //J, X                               8
+    else if (scrabbleScore()[i] === "j" || scrabbleScore()[i] === "x") {
+      score += 8
+    }
+    //Q, Z                               10
+    else if (scrabbleScore()[i] === "Q" || scrabbleScore()[i] === "Z") {
+      score += 10
+    }
+
+  }
+
+console.log(score)
+
 
 // Add your code above this line
 
@@ -174,7 +301,18 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 4:')
 
 // Add your code below this line
+function isPalindrome(){
 
+    let palRev = pal.split("").reverse().join("");
+
+    if(pal === palRev){
+        console.log(`${pal} is a palindrome!`)
+    } else{
+        console.log(`${pal} is NOT a palindrome!`)
+    }
+}
+let pal = "noosh"
+isPalindrome()
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -207,6 +345,15 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
+
+var texts = ["loop", "rune", "apple"];
+
+
+for(var idx in texts){
+    var text = texts[idx].split("");
+    console.log(text.join("") + " is " + text.some(function(v,i,a){return a.lastIndexOf(v)!=i;}));
+
+  }
 
 // Add your code above this line
 
