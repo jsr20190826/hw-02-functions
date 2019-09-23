@@ -33,63 +33,50 @@ console.log('Problem 1:')
 
 const cards = [19,20,21,22]
 
-for (i = 0; i < 1; i++) {
+for (i = 0; i < 10; i++) {
 
-const playerCardScore = cards[Math.floor(Math.random() * cards.length)]
-const dealerCardScore = cards[Math.floor(Math.random() * cards.length)]
+  const playerCardScore = cards[Math.floor(Math.random() * cards.length)]
+  const dealerCardScore = cards[Math.floor(Math.random() * cards.length)]
 
-//const playerCardScore = 21
-//const dealerCardScore = 21
+  blackJack(playerCardScore,dealerCardScore)
 
+  function blackJack(playerCardScore,dealerCardScore) {
 
+    if (playerCardScore === 22 && dealerCardScore === 22 ) {
 
-blackJack(playerCardScore,dealerCardScore)
-
-function blackJack(playerCardScore,dealerCardScore) {
-
- console.log(`========================`)
-
-  if (playerCardScore === 22 && dealerCardScore === 22 ) {
-
-    console.log(`Player:${playerCardScore}`)
-    console.log(`Dealer:${dealerCardScore}`)
-
-    console.log('Both 22: 0')
-  }
-
-  else if (playerCardScore === 21 && dealerCardScore === 21 ) {
-
-    console.log(`Player:${playerCardScore}`)
-    console.log(`Dealer:${dealerCardScore}`)
-
-    console.log('Both 21: 21')
-  }
-
-
-
-  if (playerCardScore === 22 || dealerCardScore === 22 ) {
-
-    console.log('One is over 21')
-    console.log(`Player:${playerCardScore}`)
-    console.log(`Dealer:${dealerCardScore}`)
-
-
-    if (playerCardScore === 22 &&  dealerCardScore !== 22 ) {
-
-      console.log(`Dealer wins with: ${dealerCardScore}`)
+      console.log(`Player:${playerCardScore}`)
+      console.log(`Dealer:${dealerCardScore}`)
+      console.log('Both 22: 0')
     }
 
-    if (playerCardScore !==22 &&  dealerCardScore === 22 ) {
+    else if (playerCardScore === 21 && dealerCardScore === 21 ) {
 
-    console.log(`Player wins with:${playerCardScore}`)
-
+      console.log(`Player: ${playerCardScore}`)
+      console.log(`Dealer: ${dealerCardScore}`)
+      console.log('Both 21: 21')
     }
 
-  }
+    if (playerCardScore === 22 || dealerCardScore === 22 ) {
+
+      //console.log('One is over 21')
+      console.log(`Player: ${playerCardScore}`)
+      console.log(`Dealer: ${dealerCardScore}`)
+
+        if (playerCardScore === 22 &&  dealerCardScore !== 22 ) {
+
+          console.log(`Dealer wins with: ${dealerCardScore}`)
+        }
+
+        if (playerCardScore !==22 &&  dealerCardScore === 22 ) {
+
+          console.log(`Player wins with:${playerCardScore}`)
+
+        }
+      }
+
 
   else if (playerCardScore > dealerCardScore) {
-    console.log(`Player Larger`)
-  //  console.log(`Game #:${i}`)
+
     console.log(`Player:${playerCardScore}`)
     console.log(`Dealer:${dealerCardScore}`)
     console.log(`Player wins with:${playerCardScore}`)
@@ -97,19 +84,16 @@ function blackJack(playerCardScore,dealerCardScore) {
   }
 
   else if (playerCardScore < dealerCardScore) {
-    console.log(`Dealer Larger`)
-  //  console.log(`Game #:${i}`)
+
     console.log(`Player:${playerCardScore}`)
     console.log(`Dealer:${dealerCardScore}`)
     console.log(`Dealer wins with: ${dealerCardScore}`)
 
   }
-
-
+    console.log(`-------------------`)
+}
 }
 
-
-}
 
 // Add your code above this line
 
@@ -245,55 +229,54 @@ scrabbleScore(wordPlayed)
 
 function scrabbleScore(word) {
 
-let sum = 0
+  let sum = 0
 
-const Score1 = ["a","e","i","o","u","l","n","r","s","t"]
-const Score2 = ["d","g"]
-const Score3 = ["b","c","m","p"]
-const Score4 = ["f","h","v","w","y"]
-const Score5 = ["k"]
-const Score8 = ["j","x"]
-const Score10 = ["q","z"]
+  const Score1 = ["a","e","i","o","u","l","n","r","s","t"]
+  const Score2 = ["d","g"]
+  const Score3 = ["b","c","m","p"]
+  const Score4 = ["f","h","v","w","y"]
+  const Score5 = ["k"]
+  const Score8 = ["j","x"]
+  const Score10 = ["q","z"]
 
-for (var position = 0; position < word.length; position++) {
+  for (var position = 0; position < word.length; position++) {
 
-let character = word.charAt(position)
-//console.log(`character = ${word.charAt(position)}`)
+    let character = word.charAt(position)
+    //console.log(`character = ${word.charAt(position)}`)
 
-if ( Score1.includes(character)) {
-  sum = sum + 1
+    if ( Score1.includes(character)) {
+      sum = sum + 1
+    }
+
+    else if  ( Score1.includes(character)) {
+      sum = sum + 1
+    }
+
+    else if ( Score2.includes(character)) {
+      sum = sum + 2
+    }
+
+    else if ( Score3.includes(character)) {
+      sum = sum + 3
+    }
+    else if ( Score4.includes(character)) {
+      sum = sum + 4
+    }
+    else if ( Score5.includes(character)) {
+      sum = sum + 5
+    }
+    else if ( Score8.includes(character)) {
+      sum = sum + 8
+    }
+    else if ( Score10.includes(character)) {
+      sum = sum + 10
+    }
+
+  }
+
+  console.log(`"${word}" has a Scrabble Score of ${sum}`)
+
 }
-
-else if  ( Score1.includes(character)) {
-  sum = sum + 1
-}
-
-else if ( Score2.includes(character)) {
-  sum = sum + 2
-}
-
-else if ( Score3.includes(character)) {
-  sum = sum + 3
-}
-else if ( Score4.includes(character)) {
-  sum = sum + 4
-}
-else if ( Score5.includes(character)) {
-  sum = sum + 5
-}
-else if ( Score8.includes(character)) {
-  sum = sum + 8
-}
-else if ( Score10.includes(character)) {
-  sum = sum + 10
-}
-
-}
-console.log(`"${word}" has a Scrabble Score of ${sum}`)
-
-}
-
-
 
 
 // Add your code above this line
@@ -346,11 +329,11 @@ function isPalindrome(word) {
 
     if (arrayForward.toString() === arrayReverse.toString()) {
 
-      console.log("isPalindrome = TRUE")
+      console.log(`${word} isPalindrome = true`)
     }
     else {
 
-    console.log("isPalindrome = FALSE")
+    console.log(`${word} isPalindrome = false`)
 
     }
 }
@@ -413,7 +396,7 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
-const wordTest = "aaple"
+const wordTest = "loop"
 
 hasDoubleLetters(wordTest)
 
@@ -422,16 +405,15 @@ function hasDoubleLetters(word) {
  let hasDoubles = false
 
   for (var i = 0; i < word.length; i++) {
-    console.log(word.charAt(i))
+  //  console.log(word.charAt(i))
   if (word.charAt(i) === word.charAt(i+1)) {
     hasDoubles = true
   }
 
   }
-  console.log(hasDoubles)
+  console.log(`${wordTest} has double letters = ${hasDoubles}`)
 
 }
-
 
 // Add your code above this line
 
