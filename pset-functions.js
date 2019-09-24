@@ -30,7 +30,19 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 1:')
 
 // Add your code below this line
+function blackJack(playerCardScore, dealerCardScore) {
+  if (playerCardScore <= 21 && dealerCardScore <= 21) {
+    return Math.max(playerCardScore, dealerCardScore)
+  } else if (playerCardScore <= 21) {
+    return playerCardScore
+  } else if (dealerCardScore <= 21) {
+    return dealerCardScore
+  } else {
+    return 0
+  }
+}
 
+console.log(blackJack(19, 21))
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -90,7 +102,20 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+function wordCount(phrase) {
+  const wordPhrase = phrase.replace(/[,]/g, '')
+  const wordCountObject = {}
 
+  wordPhrase.split(' ').forEach(function (currentValue) {
+    wordCountObject[currentValue] = wordCountObject[currentValue] ? ++wordCountObject[currentValue] : 1
+  })
+
+  return wordCountObject
+}
+
+const result = wordCount("Humpty Dumpty sat on a wall Humpty Dumpty had a great fall")
+
+console.log(result)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -135,7 +160,22 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+function scrabbleScore(word) {
+  const letters = word.split(' ')
+  const wordCount = {}
 
+  letters.forEach((letter) => {
+    if (wordCount[letter] === undefined) {
+      wordCount[letter] = 1
+    } else {
+      wordCount[letter] += 1
+    }
+    // console.log(wordCount)
+  })
+  return wordCount
+}
+
+console.log(scrabbleScore('cabbage'))
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -174,7 +214,12 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 4:')
 
 // Add your code below this line
+function isPalindrome(word, i = 0) {
+  const j = word.length - 1 - i;
+  return i >= j ? true : word[i] === word[j] && isPalindrome(word, i + 1);
+}
 
+console.log(isPalindrome('run'))
 // Add your code above this line
 
 /** added for formatting purposes **/
