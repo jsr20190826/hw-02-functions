@@ -31,6 +31,19 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+function blackJack(playerCardScore, dealerCardScore ){
+
+  if(playerCardScore > 21 && dealerCardScore > 21){
+    return 0
+  } else if (playerCardScore > dealerCardScore && playerCardScore <= 21 && dealerCardScore <= 21){
+    return playerCardScore
+  } else {
+    return dealerCardScore
+  }
+}
+
+console.log(blackJack(21, 21))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -90,6 +103,24 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+
+function wordCount(phrase){
+  const cleanedPhrase = phrase.replace(/[,.]/g, '')
+  const splitWords = cleanedPhrase.split(' ')
+  //return wordArr
+  const wordCount = {}
+  splitWords.forEach((splitWord) => {
+    if(wordCount[splitWord] === undefined) {
+      wordCount[splitWord] = 1
+    } else {
+      wordCount[splitWord] += 1
+      }
+    })
+    return wordCount
+
+}
+
+console.log(wordCount("Baby shark, doo doo doo doo doo doo"))
 
 // Add your code above this line
 
