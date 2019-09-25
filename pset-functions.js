@@ -31,26 +31,35 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
-// Create function 'blackJack' with 2 paramenters playerCardScore and dealerCardScore
 
-// function blackJack.(playerCardScore, dealerCardScore) {
-//   if (playerCardScore > 21 && dealerCardScore > 21)
-//   return '0'
-//
-// }
-//
-// console.log(blackJack(22,22))
 
-// const cardNumbers = [22, 22]
-// let goalNumber = 21;
-//
-// const blackJack = cardNumbers.reduce(function(playerCardScore, dealerCardScore) {
-//   return (Math.abs(dealerCardScore - goalNumber) < Math.abs(playerCardScore - goalNumber) ? dealerCardScore : playerCardScore) ? playerCardScore && dealerCardScore > 21 : ;
-// });
-//
-// console.log(blackJack);
+function blackJack(playerCardScore, dealerCardScore){
+  let result = 0;
+  if (playerCardScore > 21 && dealerCardScore > 21) {
+    return 0
+  // } else if (playerCardScore > 21) {
+  //   return dealerCardScore
+  // } else if (dealerCardScore > 21) {
+  //   return playerCardScore
+  } else if (playerCardScore > 21) {
+    return dealerCardScore
+  } else if (dealerCardScore > 21) {
+    return playerCardScore
+  } else if (playerCardScore === dealerCardScore) {
+    return playerCardScore
+  } else if (playerCardScore > dealerCardScore) {
+    return playerCardScore
+  } else if (playerCardScore < dealerCardScore) {
+    return dealerCardScore
+  } else {
+    return 'Not valid number'
+  }
+}
 
-// Return value nearest or = 21 without going over. Return 0 if both scores go over 21
+console.log(blackJack(19, 21))
+console.log(blackJack(22, 22))
+console.log(blackJack(19, 22))
+console.log(blackJack(21, 21))
 
 // Add your code above this line
 
@@ -119,10 +128,10 @@ const phrase3 = "Humpty Dumpty sat on a wall Humpty Dumpty had a great fall"
 
 
 function wordCount(str) {
-    return str.split(" ").reduce(function(count, word) {
-      count[word] = count.hasOwnProperty(word) ? count[word] + 1 : 1;
-      return count;
-    }, {});
+    return str.replace(/,/g, "").split(" ").reduce(function(count, word) {
+      count[word] = count.hasOwnProperty(word) ? count[word] + 1 : 1
+      return count
+    }, {})
 }
 
 console.log(wordCount(phrase1))
@@ -191,22 +200,22 @@ function lettersToScore(letter) {
     for (let index in letters) {
 	if (Object.keys(letters).indexOf((letters[index].indexOf(letter) !== -1) ? index.toString() : '-1')
 	    !== -1) {
-	    return parseInt(index);
+	    return parseInt(index)
 	}
     }
 }
 
 // Function: count final score
 const scrabbleScore = function(input) {
-    sum = 0;
+    sum = 0
     if (input === null || input === "") {
-	return 0;
+	return 0
     }
 
     input.toUpperCase().split("").forEach(function(elem, index, array) {
-	sum += lettersToScore(elem);
-    });
-    return sum;
+	sum += lettersToScore(elem)
+    })
+    return sum
 }
 
 console.log(scrabbleScore('cabbage'))
@@ -258,10 +267,10 @@ function isPalindrome(word) {
  const len = word.length
  for (let i = 0; i < len / 2; i++) {
    if (word[i] !== word[len - 1 - i]) {
-       return false;
+       return false
    }
  }
- return true;
+ return true
 }
 
 console.log(isPalindrome("noon"))
