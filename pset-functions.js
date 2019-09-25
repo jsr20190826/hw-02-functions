@@ -290,7 +290,24 @@ Use the following test cases to confirm your program meets the success criteria
 ************/
 console.log('Problem 5:')
 
-// Add your code below this line
+//This code is not working
+function doubleLetters(word){
+  let letterArr = word.split('')
+  let answer
+
+  for(let i = 0; i <= letterArr.length; i++) {
+    for(let x = 1; x <= letterArr.length; x++) {
+        if(letterArr[x] === word[i]){
+            answer = true
+          }
+        }
+      answer = false
+      }
+      return answer
+    }
+
+console.log(doubleLetters("loop"))
+
 
 // Add your code above this line
 
