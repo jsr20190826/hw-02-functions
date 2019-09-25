@@ -37,10 +37,6 @@ function blackJack(playerCardScore, dealerCardScore){
   let result = 0;
   if (playerCardScore > 21 && dealerCardScore > 21) {
     return 0
-  // } else if (playerCardScore > 21) {
-  //   return dealerCardScore
-  // } else if (dealerCardScore > 21) {
-  //   return playerCardScore
   } else if (playerCardScore > 21) {
     return dealerCardScore
   } else if (dealerCardScore > 21) {
