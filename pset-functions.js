@@ -107,8 +107,8 @@ console.log('Problem 2:')
 function wordCount(phrase){
   const cleanedPhrase = phrase.replace(/[,.]/g, '')
   const splitWords = cleanedPhrase.split(' ')
-  //return wordArr
   const wordCount = {}
+
   splitWords.forEach((splitWord) => {
     if(wordCount[splitWord] === undefined) {
       wordCount[splitWord] = 1
@@ -166,6 +166,46 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+function scrabbleScore(word){
+  const splitLetters = word.split("")
+  let sum = 0
+  const points = {
+    a: 1,
+    b: 3,
+    c: 3,
+    d: 2,
+    e: 1,
+    f: 4,
+    g: 2,
+    h: 4,
+    i: 1,
+    j: 8,
+    k: 5,
+    l: 1,
+    m: 3,
+    n: 1,
+    o: 1,
+    p: 3,
+    q: 10,
+    r: 1,
+    s: 1,
+    t: 1,
+    u: 1,
+    v: 4,
+    w: 4,
+    x: 8,
+    y: 4,
+    z: 10
+  }
+
+  splitLetters.forEach((splitLetter) => {
+    sum += points[splitLetter]
+    })
+
+  return sum
+}
+
+console.log(scrabbleScore("javascript"))
 
 // Add your code above this line
 
