@@ -35,14 +35,14 @@ function blackJack(playerCardScore, dealerCardScore ){
 
   if(playerCardScore > 21 && dealerCardScore > 21){
     return 0
-  } else if (playerCardScore > dealerCardScore && playerCardScore <= 21 && dealerCardScore <= 21){
+  } else if (playerCardScore > dealerCardScore && playerCardScore <= 21 || dealerCardScore > 21){
     return playerCardScore
   } else {
     return dealerCardScore
   }
 }
 
-console.log(blackJack(21, 21))
+console.log(blackJack(19, 22))
 
 // Add your code above this line
 
@@ -245,6 +245,19 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 4:')
 
 // Add your code below this line
+
+function isPalindrome(word){
+  splitWords = word.split('')
+  reversedArr = splitWords.reverse()
+  reversedWord = reversedArr.join("")
+  if(word === reversedWord){
+    return true
+  } else{
+    return false
+  }
+}
+
+console.log(isPalindrome("noon"))
 
 // Add your code above this line
 
