@@ -31,6 +31,32 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+
+
+function blackJack(playerCardScore, dealerCardScore){
+  let result = 0;
+  if (playerCardScore > 21 && dealerCardScore > 21) {
+    return 0
+  } else if (playerCardScore > 21) {
+    return dealerCardScore
+  } else if (dealerCardScore > 21) {
+    return playerCardScore
+  } else if (playerCardScore === dealerCardScore) {
+    return playerCardScore
+  } else if (playerCardScore > dealerCardScore) {
+    return playerCardScore
+  } else if (playerCardScore < dealerCardScore) {
+    return dealerCardScore
+  } else {
+    return 'Not valid number'
+  }
+}
+
+console.log(blackJack(19, 21))
+console.log(blackJack(22, 22))
+console.log(blackJack(19, 22))
+console.log(blackJack(21, 21))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -91,6 +117,22 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+const phrase1 = "olly olly in come free"
+const phrase2 = "Baby shark, doo doo doo doo doo doo"
+const phrase3 = "Humpty Dumpty sat on a wall Humpty Dumpty had a great fall"
+
+
+
+function wordCount(str) {
+    return str.replace(/,/g, "").split(" ").reduce(function(count, word) {
+      count[word] = count.hasOwnProperty(word) ? count[word] + 1 : 1
+      return count
+    }, {})
+}
+
+console.log(wordCount(phrase1))
+console.log(wordCount(phrase2))
+console.log(wordCount(phrase3))
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -136,6 +178,46 @@ console.log('Problem 3:')
 
 // Add your code below this line
 
+// Array scores of alphabet
+const letters = {
+    1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
+    2: ['D', 'G'],
+    3: ['B', 'C', 'M', 'P'],
+    4: ['F', 'H', 'V', 'W', 'Y'],
+    5: ['K'],
+    8: ['J', 'X'],
+    10: ['Q', 'Z']
+}
+// Variable to count score
+let sum;
+
+// Function: return score of letter
+function lettersToScore(letter) {
+    for (let index in letters) {
+	if (Object.keys(letters).indexOf((letters[index].indexOf(letter) !== -1) ? index.toString() : '-1')
+	    !== -1) {
+	    return parseInt(index)
+	}
+    }
+}
+
+// Function: count final score
+const scrabbleScore = function(input) {
+    sum = 0
+    if (input === null || input === "") {
+	return 0
+    }
+
+    input.toUpperCase().split("").forEach(function(elem, index, array) {
+	sum += lettersToScore(elem)
+    })
+    return sum
+}
+
+console.log(scrabbleScore('cabbage'))
+console.log(scrabbleScore('javascript'))
+console.log(scrabbleScore('function'))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -175,6 +257,23 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+function isPalindrome(word) {
+ const re = /[^A-Za-z0-9]/g
+ word = word.toLowerCase().replace(re, '')
+ const len = word.length
+ for (let i = 0; i < len / 2; i++) {
+   if (word[i] !== word[len - 1 - i]) {
+       return false
+   }
+ }
+ return true
+}
+
+console.log(isPalindrome("noon"))
+console.log(isPalindrome("racecar"))
+console.log(isPalindrome("moon"))
+console.log(isPalindrome("run"))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -207,6 +306,23 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
+
+const firstWord = "loop"
+const secondWord = "rune"
+const thirdWord = "apple"
+
+const checkString = function(word) {
+    for (let i = 0; i < word.length; i++) {
+      if (word.indexOf(word[i]) !== word.lastIndexOf(word[i])) {
+        return true
+      }
+    }
+  return false
+}
+
+console.log(checkString(firstWord))
+console.log(checkString(secondWord))
+console.log(checkString(thirdWord))
 
 // Add your code above this line
 
