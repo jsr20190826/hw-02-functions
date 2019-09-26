@@ -31,11 +31,26 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+// const playerCardScore = 3
+// const dealerCardScore = 4
+
+function blackJack(playerCardScore, dealerCardScore) {
+  if (playerCardScore <= 21 && dealerCardScore <= 21) return Math.max(playerCardScore, dealerCardScore);
+  if playerCardScorea <= 21) return playerCardScore;
+  if (dealerCardScore <= 21) return dealerCardScore;
+  return = 0
+}
+playerCardScore(19)
+dealerCardScore(21)
 // Add your code above this line
 
 /** added for formatting purposes **/
 console.log('')
 console.log('-----------------')
+
+
+
+
 
 /***********
 Problem: Word Counter
@@ -45,7 +60,7 @@ Create a function named `wordCount()` that accepts a parameter called "phrase" w
 For example, the phrase: "olly olly in come free" should result in output that looks similar to the following:
 
 ```
-olly: 1
+olly: 2
 in: 1
 come: 1
 free: 1
@@ -65,7 +80,7 @@ Use the following test cases to confirm your program meets the success criteria
    come: 1
    free: 1
 
-2. wordCount("Baby shark, doo doo doo doo doo doo")
+2. wordCount(c)
 
    Result:
 
@@ -90,12 +105,20 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+function wordCount(phrase) {
+let words = str.split(' ');
+console.log()
 
+}
+wordCount("Baby shark, doo doo doo doo doo doo")
 // Add your code above this line
 
 /** added for formatting purposes **/
 console.log('')
 console.log('-----------------')
+
+
+
 
 /***********
 Problem: Scrabble Scorer
@@ -135,7 +158,9 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+function scrabbleScore(word) {
 
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
