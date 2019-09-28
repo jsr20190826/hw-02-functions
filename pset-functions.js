@@ -31,6 +31,25 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+function blackJack(playerCardScore, dealerCardScore) {
+
+    if (playerCardScore>21 && dealerCardScore>21) {
+      result = 0
+  } else if (playerCardScore>21 || dealerCardScore>21) {
+      result = Math.min(playerCardScore, dealerCardScore)
+  }
+    else {
+      result = Math.max(playerCardScore, dealerCardScore)
+  }
+  return result
+}
+
+const a=19
+const b=21
+console.log("Test case a=19 and b=21.  Winner is:")
+console.log(blackJack(a,b))
+
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -90,6 +109,28 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+function wordCount(phrase) {
+  // Have to split the sentence into words
+  // first get rid of possible commas --
+  const nocomma=phrase.replace(',',"")
+  const words=nocomma.split(" ")
+  const nWord={}
+  //loop through the number of words in the sentence and
+  //check for each of the words we have already identifies
+  words.forEach((word) => {
+    //    console.log(nWord[word])
+    if (nWord[word] === undefined) {
+    nWord[word] = 1
+    } else {
+    nWord[word]++
+    }
+  })  // closing the loop
+  return nWord
+} // closing the function
+
+const phrase="Baby shark, doo doo doo doo doo doo"
+console.log("Test:" + phrase)
+console.log(wordCount(phrase))
 
 // Add your code above this line
 
@@ -135,6 +176,47 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+function scrabbleScore(word) {
+  // Have to split the sentence into words
+  let characters=word.split("")
+  let points=0
+  // put the cases inside arrays to facilitate adding points
+  const onePoint=["a","e","i","o","u","l","n","r","s","t"]
+  const twoPoint=["d","g"]
+  const threePoint=["b","c","m","p"]
+  const fourPoint=["f","h","v","w","y"]
+  const fivePoint=["k"]
+  const eightPoint=["j","x"]
+  const tenPoint=["q","z"]
+  //loop through the number of characters in the workd
+
+  for (var i = 0; i < characters.length; i++) {
+      // check which point categories the character belongs in and add points
+    if (onePoint.includes(characters[i])) {
+        points=points+1
+    } else if (twoPoint.includes(characters[i])) {
+        points=points+2
+    } else if (threePoint.includes(characters[i])) {
+      points=points+3
+    } else if (fourPoint.includes(characters[i])) {
+      points=points+4
+    } else if (fivePoint.includes(characters[i])) {
+      points=points+5
+    } else if (eightPoint.includes(characters[i])) {
+      points=points+8
+    } else if (tenPoint.includes(characters[i])) {
+      points=points+10
+    }//find in the point categories
+  } //for each charater in the test word
+  return points
+} // end of function
+
+const word="function"
+console.log("Test: " + word)
+console.log("Number of points: " + scrabbleScore(word))
+
+
+
 
 // Add your code above this line
 
@@ -174,6 +256,31 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 4:')
 
 // Add your code below this line
+function isPalindrome(word){
+  // split the word into characters
+  let wordChar=word.split("")
+  let reverseWord=[]
+  //console.log(wordChar)
+  // add the characters into reverseWord in reverseorder
+  for (let i = 0; i < wordChar.length; i++) {
+    reverseWord[wordChar.length-i-1]=wordChar[i]
+  }
+  // Output the word and the revers for debugging
+  console.log("Original word: " + word)
+  console.log("Revers word: " + reverseWord.join(""))
+  // check if we have a Palindrome
+  if (word===reverseWord.join("")) {
+    return true
+  }
+}
+
+const test="racecar"
+if (isPalindrome(test))
+  {console.log("is a Palindrome")
+  } else
+  {console.log("maybe undefined")
+  }
+
 
 // Add your code above this line
 
@@ -207,6 +314,26 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
+
+function doubleLetters(word) {
+  // Have to split the sentence into words
+  // first get rid of possible commas --
+  const characters=word.split("")
+  let double=false
+  //loop through the number of words in the sentence and
+  //check for each of the words we have already identifies
+  for (var i = 0; i < (word.length)-1; i++) {
+    if (characters[i]===characters[i+1]) {
+      double=true
+    }
+  }  //closing the todoloop
+ return double
+} // closing the function
+
+const testword="runu"
+console.log("Test: " + testword)
+console.log("Result for double character test:", doubleLetters(testword))
+
 
 // Add your code above this line
 
