@@ -31,6 +31,19 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+function blackJack(playerCardScore, dealerCardScore ){
+
+  if(playerCardScore > 21 && dealerCardScore > 21){
+    return 0
+  } else if (playerCardScore > dealerCardScore && playerCardScore <= 21 || dealerCardScore > 21){
+    return playerCardScore
+  } else {
+    return dealerCardScore
+  }
+}
+
+console.log(blackJack(19, 22))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -91,6 +104,24 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+function wordCount(phrase){
+  const cleanedPhrase = phrase.replace(/[,.]/g, '')
+  const splitWords = cleanedPhrase.split(' ')
+  const wordCount = {}
+
+  splitWords.forEach((splitWord) => {
+    if(wordCount[splitWord] === undefined) {
+      wordCount[splitWord] = 1
+    } else {
+      wordCount[splitWord] += 1
+      }
+    })
+    return wordCount
+
+}
+
+console.log(wordCount("Baby shark, doo doo doo doo doo doo"))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -135,6 +166,46 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+function scrabbleScore(word){
+  const splitLetters = word.split("")
+  let sum = 0
+  const points = {
+    a: 1,
+    b: 3,
+    c: 3,
+    d: 2,
+    e: 1,
+    f: 4,
+    g: 2,
+    h: 4,
+    i: 1,
+    j: 8,
+    k: 5,
+    l: 1,
+    m: 3,
+    n: 1,
+    o: 1,
+    p: 3,
+    q: 10,
+    r: 1,
+    s: 1,
+    t: 1,
+    u: 1,
+    v: 4,
+    w: 4,
+    x: 8,
+    y: 4,
+    z: 10
+  }
+
+  splitLetters.forEach((splitLetter) => {
+    sum += points[splitLetter]
+    })
+
+  return sum
+}
+
+console.log(scrabbleScore("javascript"))
 
 // Add your code above this line
 
@@ -175,6 +246,19 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+function isPalindrome(word){
+  let splitWords = word.split('')
+  let reversedArr = splitWords.reverse()
+  let reversedWord = reversedArr.join("")
+  if(word === reversedWord){
+    return true
+  } else{
+    return false
+  }
+}
+
+console.log(isPalindrome("noon"))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -206,7 +290,38 @@ Use the following test cases to confirm your program meets the success criteria
 ************/
 console.log('Problem 5:')
 
-// Add your code below this line
+//This code is not working
+//function doubleLetters(word){
+  /*let letterArr = word.split('')
+  let answer
+
+  for(let i = 0; i <= letterArr.length; i++) {
+    for(let x = 1; x <= letterArr.length; x++) {
+        if(letterArr[x] === word[i]){
+          console.log("match found")
+            answer = true
+          }
+        }
+      answer = false
+      }
+      return answer
+    }*/
+
+
+
+function doubleLetters(word){
+  let letters = word.split('')
+  let result = false
+  letters.forEach((letter, index) => {
+    if (letter === letters[index+1]){
+      result = true
+    }
+  })
+  return result
+}
+
+console.log(doubleLetters("rune"))
+
 
 // Add your code above this line
 
