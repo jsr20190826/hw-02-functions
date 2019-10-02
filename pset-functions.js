@@ -247,9 +247,9 @@ console.log('Problem 4:')
 // Add your code below this line
 
 function isPalindrome(word){
-  splitWords = word.split('')
-  reversedArr = splitWords.reverse()
-  reversedWord = reversedArr.join("")
+  let splitWords = word.split('')
+  let reversedArr = splitWords.reverse()
+  let reversedWord = reversedArr.join("")
   if(word === reversedWord){
     return true
   } else{
@@ -291,22 +291,36 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 //This code is not working
-function doubleLetters(word){
-  let letterArr = word.split('')
+//function doubleLetters(word){
+  /*let letterArr = word.split('')
   let answer
 
   for(let i = 0; i <= letterArr.length; i++) {
     for(let x = 1; x <= letterArr.length; x++) {
         if(letterArr[x] === word[i]){
+          console.log("match found")
             answer = true
           }
         }
       answer = false
       }
       return answer
-    }
+    }*/
 
-console.log(doubleLetters("loop"))
+
+
+function doubleLetters(word){
+  let letters = word.split('')
+  let result = false
+  letters.forEach((letter, index) => {
+    if (letter === letters[index+1]){
+      result = true
+    }
+  })
+  return result
+}
+
+console.log(doubleLetters("rune"))
 
 
 // Add your code above this line
